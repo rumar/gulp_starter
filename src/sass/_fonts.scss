@@ -1,0 +1,18 @@
+@mixin fontFace($FontName, $FontPathName, $FontWeight ) {
+
+	@font-face {
+		font-family: '#{$FontName}';
+		src: url('/assets/fonts/#{$FontPathName}/#{$FontPathName}-#{$FontWeight}.woff2') format('woff2'),
+			 url('/assets/fonts/#{$FontPathName}/#{$FontPathName}-#{$FontWeight}.woff') format('woff'),
+			 url('/assets/fonts/#{$FontPathName}/#{$FontPathName}-#{$FontWeight}.ttf') format('truetype');
+		font-weight: #{$FontWeight};
+		font-style: normal;
+	}
+
+}
+
+@include fontFace('OpenSans', 'opensans', '400');
+@include fontFace('OpenSans', 'opensans', '600');
+@include fontFace('OpenSans', 'opensans', '700');
+
+$font-main: 'OpenSans', Arial, Helvetica, sans-serif;
