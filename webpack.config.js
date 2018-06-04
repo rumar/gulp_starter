@@ -6,7 +6,7 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 module.exports = {
 	context: path.resolve(__dirname, "src"),
 	entry: {
-		common: ["./sass/common.scss", "babel-polyfill", "./js/common"]
+		common: ["./scss/common.scss", "babel-polyfill", "./js/common"]
 	},
 	output: {
 		path: path.resolve(__dirname, "dist"),
@@ -104,16 +104,6 @@ module.exports = {
 		]
 	},
 	plugins: [
-		new webpack.optimize.CommonsChunkPlugin({
-			name: "vendors",
-			minChunks: function (module) {
-				return (
-					module.context &&
-					(module.context.includes("node_modules") ||
-					module.context.includes("libs"))
-				);
-			}
-		}),
 		new webpack.ProvidePlugin({
 			$: "jquery",
 			jQuery: "jquery",
